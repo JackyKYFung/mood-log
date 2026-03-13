@@ -4,7 +4,7 @@ import './App.css'
 function App() {
   const [moodList, setMoodList] = useState<any[]>([]);
 
-  function addMood(e) {
+  function addMood(e: any) {
     const newEmoji = e.target.innerText;
     const time = new Date().toLocaleTimeString();
     const timeOfDay = getTimeOfDay();
