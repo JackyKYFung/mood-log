@@ -5,7 +5,13 @@ function App() {
   const [moodList, setMoodList] = useState([]);
 
   function addMood(newEmoji) {
-    console.log('emoji is clicked');
+    const time = new Date().toLocaleTimeString();
+    const newMood = `${newEmoji} at ${time}`;
+
+    setMoodList(prevMoods => [
+      ...prevMoods,
+      newMood
+    ]);
   }
 
 return (
@@ -18,7 +24,9 @@ return (
 
     <h3>Mood Log</h3>
     <ul>
-    {moodList} 
+      {moodList.map((mood, index) => (
+        <li key={index}>{mood}</li>
+      ))} 
     </ul>
   </main>
 )
