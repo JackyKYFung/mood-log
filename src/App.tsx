@@ -15,12 +15,17 @@ function App() {
     ]);
   }
 
+  function clearMoods(){
+    setMoodList([]);
+  }
+
 return (
   <main>
     <div>
       <button onClick={addMood}>😴</button>
       <button onClick={addMood}>🤩</button>
       <button onClick={addMood}>🫨</button>
+      <button onClick={clearMoods}>🗑️</button>
     </div>
 
     <h3>Mood Log</h3>
