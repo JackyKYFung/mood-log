@@ -7,7 +7,8 @@ function App() {
   function addMood(e) {
     const newEmoji = e.target.innerText;
     const time = new Date().toLocaleTimeString();
-    const newMood = `I feel ${newEmoji} at ${time}`;
+    const timeOfDay = getTimeOfDay();
+    const newMood = `I feel ${newEmoji} at ${timeOfDay} (${time})`;
 
     setMoodList(prevMoods => [
       ...prevMoods,
@@ -17,6 +18,15 @@ function App() {
 
   function clearMoods(){
     setMoodList([]);
+  }
+
+  function getTimeOfDay(){
+    const hour = new Date().getHours();
+
+    return hour < 11 ? "Morning" 
+         : hour < 14 ? "Noon"
+         : hour < 18 ? "Afternoon"
+         : "Evening";
   }
 
 return (
