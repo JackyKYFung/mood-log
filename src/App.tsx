@@ -2,11 +2,12 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [moodList, setMoodList] = useState([]);
+  const [moodList, setMoodList] = useState<any[]>([]);
 
-  function addMood(newEmoji) {
+  function addMood(e) {
+    const newEmoji = e.target.innerText;
     const time = new Date().toLocaleTimeString();
-    const newMood = `${newEmoji} at ${time}`;
+    const newMood = `I feel ${newEmoji} at ${time}`;
 
     setMoodList(prevMoods => [
       ...prevMoods,
@@ -29,7 +30,7 @@ return (
       ))} 
     </ul>
   </main>
-)
+);
 
 }
 
