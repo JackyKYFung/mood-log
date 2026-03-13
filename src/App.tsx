@@ -1,16 +1,26 @@
-
-
+import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const [moodList, setMoodList] = useState([]);
+
+  function addMood(newEmoji) {
+    console.log('emoji is clicked');
+  }
 
 return (
-  <div>
-    <h1>mood</h1>
-    <button>sleepy</button>
-    <button>energized</button>
-    <button>tired</button>
-  </div>
+  <main>
+    <div>
+      <button onClick={addMood}>😴</button>
+      <button onClick={addMood}>🤩</button>
+      <button onClick={addMood}>🫨</button>
+    </div>
+
+    <h3>Mood Log</h3>
+    <ul>
+    {moodList} 
+    </ul>
+  </main>
 )
 
 }
